@@ -7,10 +7,8 @@ import { useToast } from "@/components/ui/use-toast";
 import verifySchema from "@/schemas/verifySchema";
 import { ApiResponse } from "@/types/ApiResponse";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { Description } from "@radix-ui/react-toast";
 import axios, { AxiosError } from "axios";
 import { useParams, useRouter } from "next/navigation";
-import { title } from "process";
 import { useForm } from "react-hook-form";
 import * as z from "zod";
 
@@ -35,7 +33,7 @@ function verifyCodePage() {
                 description: response.data.message
             })
 
-            router.replace("signin")
+            router.replace("/signin")
 
         } catch (error) {
             console.error("Error while signing up a user", error);

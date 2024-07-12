@@ -53,7 +53,7 @@ export async function POST(request: Request) {
         } else {
             return Response.json(
                 {
-                    success: true,
+                    success: false,
                     message: "Verification code is incorrect"
                 },
                 {

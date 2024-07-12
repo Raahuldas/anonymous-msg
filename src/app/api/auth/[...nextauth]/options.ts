@@ -7,10 +7,10 @@ import bcryptjs from "bcryptjs"
 export const authOptions: NextAuthOptions = {
     providers: [
         CredentialsProvider({
-            id: "creadentials",
-            name: "Creadentials",
+            id: "credentials",
+            name: "Credentials",
             credentials: {
-                email: { label: "email", type: "text " },
+                email: { label: "email", type: "text ", placeholder:"Enter Email..." },
                 password: { label: "Password", type: "password" },
             },
             async authorize(credentials: any): Promise<any> {
@@ -18,7 +18,7 @@ export const authOptions: NextAuthOptions = {
                 try {
                     const user = await UserModel.findOne({
                         $or: [
-                            { username: credentials.identifier.username },
+                            { username: credentials.identifier },
                             { email: credentials.identifier }
                         ]
                     })
